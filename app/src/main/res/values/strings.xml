@@ -14,4 +14,6 @@
     <string name="log_in">Log In</string>
     <string name="not_a_member_yet">Not a member yet?</string>
     <string name="sign_up">Sign up!</string>
+    <string name="register">Register</string>
+    <string name="email">email</string>
 </resources>
