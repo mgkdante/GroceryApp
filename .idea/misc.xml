@@ -8,11 +8,14 @@
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/drawable/auth_bg_dark.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.14765625" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout-w936dp/activity_login.xml" value="0.1331293037490436" />
+        <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/activity_compare_price.xml" value="0.3625" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/activity_log_in.xml" value="0.1" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/activity_login.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/adapter_layout.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/laypout_bg.xml" value="0.3625" />
+        <entry key="..\:/Users/Otalo/AndroidStudioProjects/Grocery_Comparator/app/src/main/res/layout/reclycer_list.xml" value="0.26373626373626374" />
       </map>
     </option>
   </component>

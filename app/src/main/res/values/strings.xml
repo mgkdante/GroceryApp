@@ -16,4 +16,12 @@
     <string name="sign_up">Sign up!</string>
     <string name="register">Register</string>
     <string name="email">email</string>
+    <string name="add">Add</string>
+    <string name="apples_bananas_cakes_etc">apples, bananas, cakes, etc</string>
+    <string name="product">product</string>
+    <string name="button">Button</string>
+    <string name="delete">Delete</string>
+    <string name="comparelist">compareList</string>
+    <string name="compareList" />
+    <string name="text">text</string>
 </resources>
