@@ -1,34 +1,38 @@
 package com.example.grocery_comparator.groceryList
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocery_comparator.R
 import com.example.grocery_comparator.auth.LoginActivity
 import com.example.grocery_comparator.compareLists.ComparePrice
-import com.google.android.gms.tasks.Task
+import com.example.grocery_comparator.viewModel.PersonalListModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.*
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.ArrayList
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
+
 
 class MainActivity : AppCompatActivity(), LifecycleOwner {
+    private lateinit var viewModel: PersonalListModel
     private var data: MutableList<ProductItemUI> = ArrayList()
-    private var adapter: ListAdapter = ListAdapter(data)
+    private lateinit var db: FirebaseFirestore
     private lateinit var textView: TextView
     private lateinit var button: Button
-    private lateinit var db: FirebaseFirestore
     private lateinit var buttonLogOut: Button
-    private lateinit var userId: String
     private lateinit var compareButton: FloatingActionButton
+    private lateinit var userId: String
+    private var adapter = ListAdapter(data)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,20 +42,21 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar?.setDisplayShowHomeEnabled(true);
 
-        db = Firebase.firestore
-        userId = Firebase.auth.uid.toString()
+        viewModel = ViewModelProvider(this)[PersonalListModel::class.java]
 
-        loadData()
+        db = viewModel.firebaseRepo.db
+        userId = viewModel.firebaseRepo.user?.uid.toString()
 
         compareButton = findViewById(R.id.compareButton)
         button = findViewById(R.id.addButton)
         textView = findViewById(R.id.textInput)
         buttonLogOut = findViewById(R.id.button)
 
-
         val recyclerView = findViewById<RecyclerView>(R.id.groceryList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        loadData()
 
 
         buttonLogOut.setOnClickListener {
@@ -67,12 +72,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
         button.setOnClickListener {
             insertItem()
-            val docData1 = hashMapOf("product" to textView.text.toString())
-            val newRef1 = db.collection("Users/${userId}/Products").document(textView.text.toString())
-                newRef1.set(docData1)
             textView.text = ""
         }
     }
+
 
     private fun getData(): Task<QuerySnapshot> {
         return db
@@ -94,12 +97,15 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         }
     }
 
+
     private fun insertItem(){
         val newItem: ProductItemUI =
             ProductItemUI(
                 textView.text.toString()
             )
-        data.add(0,newItem)
+
+        viewModel.saveProductToFirebase(newItem)
+        data.add(0, newItem)
         adapter.notifyItemInserted(0)
     }
 
