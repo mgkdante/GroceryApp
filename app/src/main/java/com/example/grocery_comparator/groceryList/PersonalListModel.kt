@@ -1,8 +1,8 @@
-package com.example.grocery_comparator.viewModel
+package com.example.grocery_comparator.groceryList
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.grocery_comparator.groceryList.ProductItemUI
+import com.example.grocery_comparator.viewModel.FireBaseRepo
 
 class PersonalListModel: ViewModel() {
     val TAG = "FIRESTORE_VIEW_MODEL"

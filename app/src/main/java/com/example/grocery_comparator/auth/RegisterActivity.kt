@@ -51,7 +51,6 @@ class RegisterActivity : AppCompatActivity() {
                     val docData = hashMapOf("Email" to email)
                     val newRef = userDb.collection("Users").document(userId)
                     newRef.set(docData, SetOptions.merge())
-
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                 } else {

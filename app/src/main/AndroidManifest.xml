@@ -12,10 +12,14 @@
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         <activity
             android:name=".compareLists.ComparePrice"
-            android:exported="false" />
+            android:exported="true">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".groceryList.MainActivity"/>
+        </activity>
         <activity
             android:name=".auth.RegisterActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".auth.LoginActivity" />
@@ -25,7 +29,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

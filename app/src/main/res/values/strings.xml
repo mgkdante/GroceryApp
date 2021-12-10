@@ -24,4 +24,7 @@
     <string name="comparelist">compareList</string>
     <string name="compareList" />
     <string name="text">text</string>
+    <string name="query">Query</string>
+    <string name="item_name">item Name</string>
+    <string name="price">price</string>
 </resources>

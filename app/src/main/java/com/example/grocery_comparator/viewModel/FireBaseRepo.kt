@@ -15,5 +15,4 @@ class FireBaseRepo {
         return newRef1.set(product)
     }
 
-
 }
