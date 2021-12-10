@@ -30,6 +30,8 @@ class LoginActivity : AppCompatActivity() {
         logIn = findViewById(R.id.login_button)
         register = findViewById(R.id.signup_button)
 
+
+
         logIn.setOnClickListener {
             signIn(email.text.toString(), password.text.toString())
         }
@@ -52,14 +54,5 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
             }
-    }
-
-    public override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if(currentUser != null){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

@@ -27,4 +27,5 @@
     <string name="query">Query</string>
     <string name="item_name">item Name</string>
     <string name="price">price</string>
+    <string name="log_out">Log Out</string>
 </resources>

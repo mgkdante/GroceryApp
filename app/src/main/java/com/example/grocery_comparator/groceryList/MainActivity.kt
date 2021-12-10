@@ -38,13 +38,20 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.materialToolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "Your grocery list"
 
         viewModel = ViewModelProvider(this)[PersonalListModel::class.java]
 
         db = viewModel.firebaseRepo.db
         userId = viewModel.firebaseRepo.user?.uid.toString()
+
+        val currentUser = viewModel.firebaseRepo.user
+        if(currentUser == null){
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
         compareButton = findViewById(R.id.compareButton)
         button = findViewById(R.id.addButton)
@@ -79,7 +86,6 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private fun getData(): Task<QuerySnapshot> {
         return db
             .collection("Users/${userId}/Products")
-            .orderBy("product", Query.Direction.DESCENDING)
             .get()
     }
 
