@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.materialToolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         supportActionBar?.title = "Your grocery list"
 
         viewModel = ViewModelProvider(this)[PersonalListModel::class.java]

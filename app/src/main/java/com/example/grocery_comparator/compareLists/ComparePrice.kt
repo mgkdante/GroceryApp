@@ -39,7 +39,6 @@ class ComparePrice : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "What you will pay"
 
-
         db = firebaseRepo.db
         userId = firebaseRepo.user?.uid.toString()
 
