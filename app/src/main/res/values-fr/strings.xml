@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">comparateur d\'épicerie</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="action_sign_in">Connexion ou Inscription</string>
+    <string name="login_failed">Échec de la connexion</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="log_in">Connexion</string>
+    <string name="not_a_member_yet">Pas encore membre?</string>
+    <string name="sign_up">S\'inscrire!</string>
+    <string name="register">S\'inscrire</string>
+    <string name="email">email</string>
+    <string name="apples_bananas_cakes_etc">pommes, bananes, gâteaux, etc</string>
+    <string name="delete">Supprimer</string>
+    <string name="comparelist">compareList</string>
+    <string name="compareList" />
+    <string name="text">texte</string>
+    <string name="query">Requete</string>
+    <string name="item_name">nom de l\'article</string>
+    <string name="price">prix</string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="prompt_password">Mot de Passe</string>
+    <string name="action_sign_in_short">S\'identifier</string>
+    <string name="welcome">Bienvenu!</string>
+    <string name="invalid_username">Pas un nom d\'utilisateur valide</string>
+    <string name="invalid_password">Mot de passe doit être >5 caractères</string>
+    <string name="password">Mot de passe</string>
+    <string name="add">Ajouter</string>
+    <string name="product">produit</string>
+    <string name="button">Bouton</string>
+    <string name="titleBar">Liste d\'épicerie</string>
+</resources>

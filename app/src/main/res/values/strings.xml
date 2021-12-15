@@ -28,4 +28,5 @@
     <string name="item_name">item Name</string>
     <string name="price">price</string>
     <string name="log_out">Log Out</string>
+    <string name="titleBar">Your grocery list</string>
 </resources>
