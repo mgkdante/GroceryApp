@@ -63,6 +63,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
+        data.clear()
+
         loadData()
 
 

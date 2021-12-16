@@ -29,6 +29,8 @@ class ResultListAdapter(var dataItem: MutableList<PricedItemUI>): RecyclerView.A
 
         private val productText = itemView.findViewById<TextView>(R.id.priced_item)
         private val priceText = itemView.findViewById<TextView>(R.id.price)
+        private val priceMaxiText = itemView.findViewById<TextView>(R.id.priceMaxi)
+
         private lateinit var item: PricedItemUI
 
 
@@ -36,6 +38,7 @@ class ResultListAdapter(var dataItem: MutableList<PricedItemUI>): RecyclerView.A
             this.item = item
             productText.text = item.item_name
             priceText.text = item.price_i
+            priceMaxiText.text = item.price_m
         }
 
     }

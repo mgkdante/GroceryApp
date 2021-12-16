@@ -1,5 +1,6 @@
 package com.example.grocery_comparator.compareLists
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,12 +25,14 @@ class ComparePrice : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private var data: MutableList<PricedItemUI> = ArrayList()
     private var groceryList: MutableList<ProductItemUI> = ArrayList()
-    private var finalList: MutableList<PricedItemUI> = ArrayList()
     private var exportedData = FireBaseExportedData(data)
     private var customerData = CustomerData(groceryList)
     private var resultListAdapter = ResultListAdapter(finalList)
     private lateinit var userId: String
 
+    companion object {
+        private var finalList: MutableList<PricedItemUI> = ArrayList()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +47,11 @@ class ComparePrice : AppCompatActivity() {
 
         buttonLogOut = findViewById(R.id.LogOutButton)
 
-
         val recyclerView = findViewById<RecyclerView>(R.id.results)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = resultListAdapter
+
+        finalList.clear()
 
         loadCustomerData()
 
@@ -72,6 +76,7 @@ class ComparePrice : AppCompatActivity() {
             .get()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun loadCustomerData() {
         getCustomerData().addOnCompleteListener {
             if (it.isSuccessful) {
@@ -85,13 +90,14 @@ class ComparePrice : AppCompatActivity() {
                             for(product in data){
                                 val string = product.item_name
                                 if(string.contains(item.product)){
-                                  //Log.d("Tag", product.toString())
                                    finalList.add(0, product)
-                                    resultListAdapter.dataItem = finalList
+                                    resultListAdapter.dataItem = finalList.toSet().toMutableList()
                                     resultListAdapter.notifyDataSetChanged()
                                 }
                             }
+                            Log.d("Tag", finalList.toString());
                         }
+
                     }
                 }
             } else {
